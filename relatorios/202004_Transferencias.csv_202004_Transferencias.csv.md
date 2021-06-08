@@ -4,9 +4,7 @@
 * novo/202004_Transferencias.csv (172672 linhas)
 ### Diferença de número de transferência por município:
 | Mun | 202004_Transferencias.csv | 202004_Transferencias.csv |
-
 | --- | --- | --- |
-
 | TERRA NOVA - BA | 17 | 23 |
 | TARTARUGALZINHO - AP | 22 | 25 |
 | CONTENDA - PR | 30 | 33 |
