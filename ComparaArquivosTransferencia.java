@@ -59,8 +59,8 @@ public class ComparaArquivosTransferencia {
 
         final String cabecalhoTabela =
                 """
-                        |Mun|%s|%s|\n
-                        |---|---|---|\n
+                        | Mun | %s | %s |\n
+                        | --- | --- | --- |\n
                         """
                    .formatted(p1.toFile().getName(), p2.toFile().getName());
         relatorio.append(cabecalhoTabela);
@@ -69,7 +69,7 @@ public class ComparaArquivosTransferencia {
             var l2 = resumoP2.get(m);
 
             if (l2 != null && l.size() != l2.size()) {
-                relatorio.append("|%s|%s|%s|\n".formatted(m, l.size(), l2.size()));
+                relatorio.append("| %s | %s | %s |\n".formatted(m, l.size(), l2.size()));
             }
         });
         
