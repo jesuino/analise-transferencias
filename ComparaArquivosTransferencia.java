@@ -43,40 +43,70 @@ public class ComparaArquivosTransferencia {
         var linhasP1 = linhas(p1);
         var linhasP2 = linhas(p2);
 
-        final String templateContagem = "* %s (%d linhas)\n";
         relatorio.append("### Arquivos analisados:\n");
+        final String templateContagem = "* %s (%d linhas)\n";
         relatorio.append(templateContagem.formatted(p1, linhasP1.size()));
         relatorio.append(templateContagem.formatted(p2, linhasP2.size()));
+        
+        
+        relatorio.append("### Total Transferências:\n");
+        final String templateSoma = "* %s: %f\n";
+        relatorio.append(templateSoma.formatted(p1, soma(linhasP1)));
+        relatorio.append(templateSoma.formatted(p2, soma(linhasP2)));
 
         // CONTAR LINHAS POR CIDADE E SOMAR
 
         // SOMAR LINHAS POR CIDADE E COMPARAR
 
-        var resumoP1 = contaPorCidade(linhasP1);
-        var resumoP2 = contaPorCidade(linhasP2);
-
-        relatorio.append("### Diferença de número de transferência por município:\n");
-
+        var contagemP1 = contaPorCidade(linhasP1);
+        var contagemP2 = contaPorCidade(linhasP2);
+        
+        var somaP1 = somaPorCidade(linhasP1);
+        var somaP2 = somaPorCidade(linhasP2);
+        
         final String cabecalhoTabela =
                 """
                         | Mun | %s | %s |
                         | --- | --- | --- |
                         """
                    .formatted(p1.toFile().getName(), p2.toFile().getName());
+        
+        relatorio.append("### Diferença de valores totais de transferências por município:\n");
         relatorio.append(cabecalhoTabela);
-        resumoP1.forEach((m, l) -> {
-            var l2 = resumoP2.get(m);
+        somaP1.forEach((m, l) -> {
+            var l2 = somaP2.get(m);
+
+            if (l2 != null && Double.compare(l, l2) != 0) {
+                relatorio.append("| %s | %.2f | %.2f |\n".formatted(m, l, l2));
+            }
+        });
+
+        relatorio.append("### Diferença de número de transferência por município:\n");
+        relatorio.append(cabecalhoTabela);
+        contagemP1.forEach((m, l) -> {
+            var l2 = contagemP2.get(m);
 
             if (l2 != null && l.size() != l2.size()) {
                 relatorio.append("| %s | %s | %s |\n".formatted(m, l.size(), l2.size()));
             }
         });
         
-        var nomeSaida = p1.toFile().getName() + "_" + p2.toFile().getName() + ".md";
+        
+        
+        
+        var nomeSaida = "relatorios/" + p1.toFile().getName() + "_" + p2.toFile().getName() + ".md";
         
         Files.writeString(Paths.get(nomeSaida), relatorio.toString());
         System.out.println("Análise terminada");
 
+    }
+
+    private static Double soma(List<ComparaArquivosTransferencia.Linha> linhas) {
+        return linhas.stream().collect(Collectors.summingDouble(Linha::valor));
+    }
+
+    private static Map<String, Double> somaPorCidade(List<ComparaArquivosTransferencia.Linha> linhas) {
+        return linhas.stream().collect(Collectors.groupingBy(Linha::municipio, Collectors.summingDouble(Linha::valor)));
     }
 
     private static Map<String, List<ComparaArquivosTransferencia.Linha>> contaPorCidade(List<ComparaArquivosTransferencia.Linha> linhas) {
@@ -104,6 +134,11 @@ public class ComparaArquivosTransferencia {
                                                                .replaceAll("\\,", ".");
                      var mun = limpa(colunas[munIdx.get()]);
                      var est = limpa(colunas[estIdx.get()]);
+                     
+                     if (mun == null || mun.isBlank()) {
+                         mun  = "ESTADO";
+                     }
+                     
                      var linha = new Linha(mun + " - " + est,
                                            Double.parseDouble(valor));
                      linhas.add(linha);
