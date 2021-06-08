@@ -59,12 +59,11 @@ public class ComparaArquivosTransferencia {
 
         final String cabecalhoTabela =
                 """
-                        | Mun | %s | %s |\n
-                        | --- | --- | --- |\n
+                        | Mun | %s | %s |
+                        | --- | --- | --- |
                         """
                    .formatted(p1.toFile().getName(), p2.toFile().getName());
         relatorio.append(cabecalhoTabela);
-        var faltaMun = new ArrayList<String>();
         resumoP1.forEach((m, l) -> {
             var l2 = resumoP2.get(m);
 
