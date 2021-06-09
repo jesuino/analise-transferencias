@@ -1,4 +1,4 @@
-Erro na linha 130610 do arquivo ./backup/201809.zip 
-Erro na linha 193724 do arquivo ./backup/201809.zip 
-Erro na linha 129665 do arquivo novo/201809.zip 
-Erro na linha 211451 do arquivo novo/201809.zip 
+Erro na linha 130610 do arquivo entrada/marco/201809.zip 
+Erro na linha 193724 do arquivo entrada/marco/201809.zip 
+Erro na linha 129665 do arquivo entrada/abril/201809.zip 
+Erro na linha 211451 do arquivo entrada/abril/201809.zip 

@@ -1,2 +1,2 @@
-Erro na linha 135251 do arquivo ./backup/201407.zip 
-Erro na linha 145733 do arquivo novo/201407.zip 
+Erro na linha 135251 do arquivo entrada/marco/201407.zip 
+Erro na linha 145733 do arquivo entrada/abril/201407.zip 

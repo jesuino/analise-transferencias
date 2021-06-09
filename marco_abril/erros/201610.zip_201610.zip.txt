@@ -1,2 +1,2 @@
-Erro na linha 94065 do arquivo ./backup/201610.zip 
-Erro na linha 110496 do arquivo novo/201610.zip 
+Erro na linha 94065 do arquivo entrada/marco/201610.zip 
+Erro na linha 110496 do arquivo entrada/abril/201610.zip 

@@ -1,6 +1,6 @@
-Erro na linha 75574 do arquivo ./backup/201512.zip 
-Erro na linha 101399 do arquivo ./backup/201512.zip 
-Erro na linha 176421 do arquivo ./backup/201512.zip 
-Erro na linha 75837 do arquivo novo/201512.zip 
-Erro na linha 100777 do arquivo novo/201512.zip 
-Erro na linha 197344 do arquivo novo/201512.zip 
+Erro na linha 75574 do arquivo entrada/marco/201512.zip 
+Erro na linha 101399 do arquivo entrada/marco/201512.zip 
+Erro na linha 176421 do arquivo entrada/marco/201512.zip 
+Erro na linha 75837 do arquivo entrada/abril/201512.zip 
+Erro na linha 100777 do arquivo entrada/abril/201512.zip 
+Erro na linha 197344 do arquivo entrada/abril/201512.zip 

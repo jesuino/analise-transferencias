@@ -1,4 +1,4 @@
-Erro na linha 106672 do arquivo ./backup/201502.zip 
-Erro na linha 160537 do arquivo ./backup/201502.zip 
-Erro na linha 105743 do arquivo novo/201502.zip 
-Erro na linha 163722 do arquivo novo/201502.zip 
+Erro na linha 106672 do arquivo entrada/marco/201502.zip 
+Erro na linha 160537 do arquivo entrada/marco/201502.zip 
+Erro na linha 105743 do arquivo entrada/abril/201502.zip 
+Erro na linha 163722 do arquivo entrada/abril/201502.zip 

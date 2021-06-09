@@ -1,4 +1,4 @@
-Erro na linha 57229 do arquivo ./backup/201609.zip 
-Erro na linha 97460 do arquivo ./backup/201609.zip 
-Erro na linha 57141 do arquivo novo/201609.zip 
-Erro na linha 113992 do arquivo novo/201609.zip 
+Erro na linha 57229 do arquivo entrada/marco/201609.zip 
+Erro na linha 97460 do arquivo entrada/marco/201609.zip 
+Erro na linha 57141 do arquivo entrada/abril/201609.zip 
+Erro na linha 113992 do arquivo entrada/abril/201609.zip 

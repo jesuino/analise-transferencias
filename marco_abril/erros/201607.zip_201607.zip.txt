@@ -1,6 +1,6 @@
-Erro na linha 87597 do arquivo ./backup/201607.zip 
-Erro na linha 124094 do arquivo ./backup/201607.zip 
-Erro na linha 186094 do arquivo ./backup/201607.zip 
-Erro na linha 87648 do arquivo novo/201607.zip 
-Erro na linha 123201 do arquivo novo/201607.zip 
-Erro na linha 202982 do arquivo novo/201607.zip 
+Erro na linha 87597 do arquivo entrada/marco/201607.zip 
+Erro na linha 124094 do arquivo entrada/marco/201607.zip 
+Erro na linha 186094 do arquivo entrada/marco/201607.zip 
+Erro na linha 87648 do arquivo entrada/abril/201607.zip 
+Erro na linha 123201 do arquivo entrada/abril/201607.zip 
+Erro na linha 202982 do arquivo entrada/abril/201607.zip 

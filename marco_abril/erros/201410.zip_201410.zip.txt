@@ -1,2 +1,2 @@
-Erro na linha 100808 do arquivo ./backup/201410.zip 
-Erro na linha 117442 do arquivo novo/201410.zip 
+Erro na linha 100808 do arquivo entrada/marco/201410.zip 
+Erro na linha 117442 do arquivo entrada/abril/201410.zip 

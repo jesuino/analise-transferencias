@@ -1,2 +1,2 @@
-Erro na linha 100366 do arquivo ./backup/201711.zip 
-Erro na linha 120405 do arquivo novo/201711.zip 
+Erro na linha 100366 do arquivo entrada/marco/201711.zip 
+Erro na linha 120405 do arquivo entrada/abril/201711.zip 

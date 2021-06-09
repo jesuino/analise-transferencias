@@ -1,2 +1,2 @@
-Erro na linha 79931 do arquivo ./backup/201602.zip 
-Erro na linha 88013 do arquivo novo/201602.zip 
+Erro na linha 79931 do arquivo entrada/marco/201602.zip 
+Erro na linha 88013 do arquivo entrada/abril/201602.zip 

@@ -1,2 +1,2 @@
-Erro na linha 93302 do arquivo ./backup/201705.zip 
-Erro na linha 111313 do arquivo novo/201705.zip 
+Erro na linha 93302 do arquivo entrada/marco/201705.zip 
+Erro na linha 111313 do arquivo entrada/abril/201705.zip 

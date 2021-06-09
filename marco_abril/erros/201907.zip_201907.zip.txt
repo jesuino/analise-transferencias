@@ -1,2 +1,2 @@
-Erro na linha 90242 do arquivo ./backup/201907.zip 
-Erro na linha 109948 do arquivo novo/201907.zip 
+Erro na linha 90242 do arquivo entrada/marco/201907.zip 
+Erro na linha 109948 do arquivo entrada/abril/201907.zip 

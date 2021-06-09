@@ -107,8 +107,7 @@ public class ComparaArquivosTransferencia {
         var mudancasLinha = new AtomicBoolean(false);
         somaP1.forEach((m, l) -> {
             var l2 = somaP2.get(m);
-
-            if (l2 != null && Double.compare(l, l2) != 0) {
+            if (l2 != null && Math.abs(l - l2) >= 0.0001) {
                 var diff = l2 - l;
                 var percent = (diff * 100.0) / l;
                 relatorio.append("| %s | %.2f | %.2f | %.2f | %.2f |\n".formatted(m, l, l2, diff, percent));

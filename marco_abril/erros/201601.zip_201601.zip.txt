@@ -1,2 +1,2 @@
-Erro na linha 99882 do arquivo ./backup/201601.zip 
-Erro na linha 120000 do arquivo novo/201601.zip 
+Erro na linha 99882 do arquivo entrada/marco/201601.zip 
+Erro na linha 120000 do arquivo entrada/abril/201601.zip 

@@ -1,2 +1,2 @@
-Erro na linha 76153 do arquivo ./backup/201406.zip 
-Erro na linha 84315 do arquivo novo/201406.zip 
+Erro na linha 76153 do arquivo entrada/marco/201406.zip 
+Erro na linha 84315 do arquivo entrada/abril/201406.zip 

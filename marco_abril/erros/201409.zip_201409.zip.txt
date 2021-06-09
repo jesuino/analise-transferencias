@@ -1,4 +1,4 @@
-Erro na linha 69763 do arquivo ./backup/201409.zip 
-Erro na linha 104817 do arquivo ./backup/201409.zip 
-Erro na linha 69902 do arquivo novo/201409.zip 
-Erro na linha 107832 do arquivo novo/201409.zip 
+Erro na linha 69763 do arquivo entrada/marco/201409.zip 
+Erro na linha 104817 do arquivo entrada/marco/201409.zip 
+Erro na linha 69902 do arquivo entrada/abril/201409.zip 
+Erro na linha 107832 do arquivo entrada/abril/201409.zip 

@@ -1,2 +1,2 @@
-Erro na linha 104133 do arquivo ./backup/201608.zip 
-Erro na linha 112973 do arquivo novo/201608.zip 
+Erro na linha 104133 do arquivo entrada/marco/201608.zip 
+Erro na linha 112973 do arquivo entrada/abril/201608.zip 

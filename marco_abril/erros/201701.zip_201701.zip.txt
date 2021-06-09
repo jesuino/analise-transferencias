@@ -1,2 +1,2 @@
-Erro na linha 72450 do arquivo ./backup/201701.zip 
-Erro na linha 85006 do arquivo novo/201701.zip 
+Erro na linha 72450 do arquivo entrada/marco/201701.zip 
+Erro na linha 85006 do arquivo entrada/abril/201701.zip 
