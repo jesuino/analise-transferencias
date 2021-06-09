@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -30,6 +31,7 @@ public class ComparaArquivosTransferencia {
     }
 
     public static void main(String args[]) throws IOException {
+        Locale.setDefault(Locale.ITALY);
 
         if (args.length < 2) {
             System.out.println("São necessários dois parâmetros com dois caminhos para diretorio base de transferencia");
@@ -97,7 +99,7 @@ public class ComparaArquivosTransferencia {
                            .formatted(p1, p2);
 
         final var cabecalhoCSV = """
-                "Mun","%s","%s","Diff","Percent"
+                "Mun";"%s";"%s";"Diff";"Percent"
                 """
                    .formatted(p1, p2);
         relatorio.append("### Diferença de valores totais de transferências por município:\n");
@@ -111,7 +113,7 @@ public class ComparaArquivosTransferencia {
                 var diff = l2 - l;
                 var percent = (diff * 100.0) / l;
                 relatorio.append("| %s | %.2f | %.2f | %.2f | %.2f |\n".formatted(m, l, l2, diff, percent));
-                csv.append("\"%s\",%.2f,%.2f,%.2f,%.2f\n".formatted(m, l, l2, diff, percent));
+                csv.append("\"%s\";%.2f;%.2f;%.2f;%.2f\n".formatted(m, l, l2, diff, percent));
                 mudancasValor.set(true);
             }
         });
