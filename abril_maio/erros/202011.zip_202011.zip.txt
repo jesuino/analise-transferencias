@@ -1,0 +1,4 @@
+Erro na linha 98741 do arquivo entrada/abril/202011.zip 
+Erro na linha 194638 do arquivo entrada/abril/202011.zip 
+Erro na linha 98741 do arquivo entrada/maio/202011.zip 
+Erro na linha 194637 do arquivo entrada/maio/202011.zip 

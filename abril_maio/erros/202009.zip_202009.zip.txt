@@ -1,0 +1,2 @@
+Erro na linha 136578 do arquivo entrada/abril/202009.zip 
+Erro na linha 136578 do arquivo entrada/maio/202009.zip 

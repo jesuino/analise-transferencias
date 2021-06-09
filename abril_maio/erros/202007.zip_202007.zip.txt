@@ -1,0 +1,2 @@
+Erro na linha 144672 do arquivo entrada/abril/202007.zip 
+Erro na linha 144669 do arquivo entrada/maio/202007.zip 

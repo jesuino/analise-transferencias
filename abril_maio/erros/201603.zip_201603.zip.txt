@@ -1,0 +1,2 @@
+Erro na linha 104853 do arquivo entrada/abril/201603.zip 
+Erro na linha 104854 do arquivo entrada/maio/201603.zip 

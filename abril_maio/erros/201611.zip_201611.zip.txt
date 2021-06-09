@@ -1,0 +1,2 @@
+Erro na linha 113910 do arquivo entrada/abril/201611.zip 
+Erro na linha 114120 do arquivo entrada/maio/201611.zip 

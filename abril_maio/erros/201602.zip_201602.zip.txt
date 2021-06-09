@@ -1,0 +1,2 @@
+Erro na linha 88013 do arquivo entrada/abril/201602.zip 
+Erro na linha 88101 do arquivo entrada/maio/201602.zip 

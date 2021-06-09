@@ -1,0 +1,4 @@
+Erro na linha 86511 do arquivo entrada/abril/201405.zip 
+Erro na linha 153677 do arquivo entrada/abril/201405.zip 
+Erro na linha 86511 do arquivo entrada/maio/201405.zip 
+Erro na linha 153683 do arquivo entrada/maio/201405.zip 

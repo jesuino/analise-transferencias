@@ -1,0 +1,6 @@
+Erro na linha 163469 do arquivo entrada/abril/201612.zip 
+Erro na linha 163470 do arquivo entrada/abril/201612.zip 
+Erro na linha 303614 do arquivo entrada/abril/201612.zip 
+Erro na linha 163472 do arquivo entrada/maio/201612.zip 
+Erro na linha 163473 do arquivo entrada/maio/201612.zip 
+Erro na linha 309764 do arquivo entrada/maio/201612.zip 

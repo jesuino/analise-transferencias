@@ -5,13 +5,13 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
@@ -103,6 +103,8 @@ public class ComparaArquivosTransferencia {
         relatorio.append("### Diferença de valores totais de transferências por município:\n");
         relatorio.append(cabecalhoTabela);
         csv.append(cabecalhoCSV);
+        var mudancasValor = new AtomicBoolean(false);
+        var mudancasLinha = new AtomicBoolean(false);
         somaP1.forEach((m, l) -> {
             var l2 = somaP2.get(m);
 
@@ -110,8 +112,8 @@ public class ComparaArquivosTransferencia {
                 var diff = l2 - l;
                 var percent = (diff * 100.0) / l;
                 relatorio.append("| %s | %.2f | %.2f | %.2f | %.2f |\n".formatted(m, l, l2, diff, percent));
-
                 csv.append("\"%s\",%.2f,%.2f,%.2f,%.2f\n".formatted(m, l, l2, diff, percent));
+                mudancasValor.set(true);
             }
         });
 
@@ -124,6 +126,7 @@ public class ComparaArquivosTransferencia {
                 var diff = l2.size() - l.size();
                 var percent = (diff * 100) / l.size();
                 relatorio.append("| %s | %s | %s | %d | %d |\n".formatted(m, l.size(), l2.size(), diff, percent));
+                mudancasLinha.set(true);
             }
         });
 
@@ -132,10 +135,15 @@ public class ComparaArquivosTransferencia {
         var nomeSaidaCsv = "csvs/" + nomeBase + ".csv";
         var nomeSaidaErro = "erros/" + nomeBase + ".txt";
 
-        Files.writeString(Paths.get(nomeSaidaRelatorio), relatorio.toString());
-        Files.writeString(Paths.get(nomeSaidaCsv), csv.toString());
-        Files.writeString(Paths.get(nomeSaidaErro), erros.toString());
-        System.out.printf("Análise terminada para %s e  %s", p1, p2);
+        if (mudancasLinha.get() || mudancasValor.get()) {
+            System.out.println(">>> Diferenças identificadas - salvando dados");
+            Files.writeString(Paths.get(nomeSaidaRelatorio), relatorio.toString());
+            Files.writeString(Paths.get(nomeSaidaCsv), csv.toString());
+            Files.writeString(Paths.get(nomeSaidaErro), erros.toString());
+        } else {
+            System.out.println(">>> Não há diferença!");
+        }
+        System.out.printf("Análise terminada para %s e  %s\n", p1, p2);
 
     }
 
@@ -159,7 +167,8 @@ public class ComparaArquivosTransferencia {
         var estIdx = new AtomicInteger(-1);
         var valorIdx = new AtomicInteger(-1);
 
-        Files.lines(pegaCSV(p), StandardCharsets.UTF_8)
+        var temp = pegaCSV(p);
+        Files.lines(temp, StandardCharsets.UTF_8)
              .forEach(l -> {
                  var colunas = l.split(SEPARADOR);
                  if (i.getAndIncrement() == 0) {
@@ -198,6 +207,11 @@ public class ComparaArquivosTransferencia {
 
                  }
              });
+        try {
+            Files.delete(temp);
+        } catch (IOException e) {
+            System.out.println("Erro removendo arquivo CSV temporario - apague");
+        }
         return linhas;
 
     }

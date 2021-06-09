@@ -1,0 +1,2 @@
+Erro na linha 118048 do arquivo entrada/abril/202006.zip 
+Erro na linha 118051 do arquivo entrada/maio/202006.zip 

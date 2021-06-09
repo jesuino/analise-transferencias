@@ -1,0 +1,2 @@
+Erro na linha 84315 do arquivo entrada/abril/201406.zip 
+Erro na linha 84319 do arquivo entrada/maio/201406.zip 

@@ -1,0 +1,4 @@
+Erro na linha 69902 do arquivo entrada/abril/201409.zip 
+Erro na linha 107832 do arquivo entrada/abril/201409.zip 
+Erro na linha 69902 do arquivo entrada/maio/201409.zip 
+Erro na linha 107840 do arquivo entrada/maio/201409.zip 

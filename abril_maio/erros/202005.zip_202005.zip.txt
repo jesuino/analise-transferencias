@@ -1,0 +1,2 @@
+Erro na linha 123547 do arquivo entrada/abril/202005.zip 
+Erro na linha 123552 do arquivo entrada/maio/202005.zip 

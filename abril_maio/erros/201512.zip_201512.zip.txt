@@ -1,0 +1,6 @@
+Erro na linha 75837 do arquivo entrada/abril/201512.zip 
+Erro na linha 100777 do arquivo entrada/abril/201512.zip 
+Erro na linha 197344 do arquivo entrada/abril/201512.zip 
+Erro na linha 75843 do arquivo entrada/maio/201512.zip 
+Erro na linha 100783 do arquivo entrada/maio/201512.zip 
+Erro na linha 199613 do arquivo entrada/maio/201512.zip 

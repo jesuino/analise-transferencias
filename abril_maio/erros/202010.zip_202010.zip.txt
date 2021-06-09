@@ -1,0 +1,4 @@
+Erro na linha 80188 do arquivo entrada/abril/202010.zip 
+Erro na linha 163746 do arquivo entrada/abril/202010.zip 
+Erro na linha 80188 do arquivo entrada/maio/202010.zip 
+Erro na linha 163748 do arquivo entrada/maio/202010.zip 
