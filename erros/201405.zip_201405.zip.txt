@@ -1,0 +1,4 @@
+Erro na linha 86029 do arquivo ./backup/201405.zip 
+Erro na linha 146339 do arquivo ./backup/201405.zip 
+Erro na linha 86511 do arquivo novo/201405.zip 
+Erro na linha 153677 do arquivo novo/201405.zip 

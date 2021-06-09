@@ -1,0 +1,2 @@
+Erro na linha 57592 do arquivo ./backup/202002.zip 
+Erro na linha 87427 do arquivo novo/202002.zip 

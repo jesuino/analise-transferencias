@@ -1,0 +1,2 @@
+Erro na linha 84021 do arquivo ./backup/201906.zip 
+Erro na linha 102081 do arquivo novo/201906.zip 

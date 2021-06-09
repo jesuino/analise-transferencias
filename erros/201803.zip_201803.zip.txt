@@ -1,0 +1,2 @@
+Erro na linha 120828 do arquivo ./backup/201803.zip 
+Erro na linha 138276 do arquivo novo/201803.zip 

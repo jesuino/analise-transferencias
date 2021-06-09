@@ -1,0 +1,2 @@
+Erro na linha 86372 do arquivo ./backup/201708.zip 
+Erro na linha 105265 do arquivo novo/201708.zip 

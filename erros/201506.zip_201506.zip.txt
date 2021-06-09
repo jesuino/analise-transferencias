@@ -1,0 +1,1 @@
+Erro na linha 102949 do arquivo ./backup/201506.zip 

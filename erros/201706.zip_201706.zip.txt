@@ -1,0 +1,4 @@
+Erro na linha 104411 do arquivo ./backup/201706.zip 
+Erro na linha 173211 do arquivo ./backup/201706.zip 
+Erro na linha 103713 do arquivo novo/201706.zip 
+Erro na linha 194772 do arquivo novo/201706.zip 

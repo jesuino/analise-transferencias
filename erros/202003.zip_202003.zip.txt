@@ -1,0 +1,4 @@
+Erro na linha 114044 do arquivo ./backup/202003.zip 
+Erro na linha 169896 do arquivo ./backup/202003.zip 
+Erro na linha 113801 do arquivo novo/202003.zip 
+Erro na linha 211317 do arquivo novo/202003.zip 

@@ -1,0 +1,2 @@
+Erro na linha 101327 do arquivo ./backup/201707.zip 
+Erro na linha 119363 do arquivo novo/201707.zip 

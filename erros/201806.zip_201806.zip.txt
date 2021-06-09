@@ -1,0 +1,4 @@
+Erro na linha 53771 do arquivo ./backup/201806.zip 
+Erro na linha 101676 do arquivo ./backup/201806.zip 
+Erro na linha 53843 do arquivo novo/201806.zip 
+Erro na linha 119364 do arquivo novo/201806.zip 

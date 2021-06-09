@@ -1,0 +1,4 @@
+Erro na linha 97470 do arquivo ./backup/202011.zip 
+Erro na linha 153444 do arquivo ./backup/202011.zip 
+Erro na linha 98741 do arquivo novo/202011.zip 
+Erro na linha 194638 do arquivo novo/202011.zip 

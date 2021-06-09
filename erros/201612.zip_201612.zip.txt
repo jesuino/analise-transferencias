@@ -1,0 +1,5 @@
+Erro na linha 160589 do arquivo ./backup/201612.zip 
+Erro na linha 262125 do arquivo ./backup/201612.zip 
+Erro na linha 163469 do arquivo novo/201612.zip 
+Erro na linha 163470 do arquivo novo/201612.zip 
+Erro na linha 303614 do arquivo novo/201612.zip 

@@ -1,0 +1,2 @@
+Erro na linha 110347 do arquivo ./backup/201604.zip 
+Erro na linha 125888 do arquivo novo/201604.zip 

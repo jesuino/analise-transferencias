@@ -1,0 +1,6 @@
+Erro na linha 112650 do arquivo ./backup/201712.zip 
+Erro na linha 158949 do arquivo ./backup/201712.zip 
+Erro na linha 259779 do arquivo ./backup/201712.zip 
+Erro na linha 115112 do arquivo novo/201712.zip 
+Erro na linha 161849 do arquivo novo/201712.zip 
+Erro na linha 311896 do arquivo novo/201712.zip 

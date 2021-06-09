@@ -1,0 +1,2 @@
+Erro na linha 96083 do arquivo ./backup/201412.zip 
+Erro na linha 114883 do arquivo novo/201412.zip 

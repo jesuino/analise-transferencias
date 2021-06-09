@@ -1,0 +1,2 @@
+Erro na linha 141433 do arquivo ./backup/201912.zip 
+Erro na linha 185991 do arquivo novo/201912.zip 

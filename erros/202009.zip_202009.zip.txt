@@ -1,0 +1,2 @@
+Erro na linha 98876 do arquivo ./backup/202009.zip 
+Erro na linha 136578 do arquivo novo/202009.zip 

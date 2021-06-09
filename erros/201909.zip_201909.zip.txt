@@ -1,0 +1,4 @@
+Erro na linha 110101 do arquivo ./backup/201909.zip 
+Erro na linha 162383 do arquivo ./backup/201909.zip 
+Erro na linha 109283 do arquivo novo/201909.zip 
+Erro na linha 180700 do arquivo novo/201909.zip 
