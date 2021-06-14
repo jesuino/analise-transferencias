@@ -40,7 +40,16 @@ public class ComparaArquivosTransferencia {
 
         var backupPath = args[0];
         var novoPath = args[1];
+        var gerarRelatorios = args.length > 2 ? Boolean.parseBoolean(args[2]) : true;
 
+        System.out.printf("Analisando arquivos dos diretórios:\n\t%s\n\t%s\n", backupPath, novoPath);
+
+        System.out.println(gerarRelatorios ? "==Relatórios para os arquivos serão gerados." : "==Relatório não serão gerados==");
+
+        final var cabecalhoLinhas = """
+                "arquivo1","arquivo2","total1","total2","diferença"
+                """;
+        var relatorioTotalLinhas = new StringBuffer(cabecalhoLinhas);
         Files.walk(Paths.get(backupPath), 2)
              .filter(p -> p.toString().endsWith("zip"))
              .forEach(p -> {
@@ -53,98 +62,110 @@ public class ComparaArquivosTransferencia {
                  }
 
                  try {
-                     processa(p, novo);
+                     var contagemLinhas = processa(p, novo, gerarRelatorios);
+                     relatorioTotalLinhas.append("\"%s\"%s\"%s\"%s%d%s%d%s%d".formatted(p.toFile().getName(), SEPARADOR,
+                                                                                        novo.toFile().getName(), SEPARADOR,
+                                                                                        contagemLinhas[0], SEPARADOR,
+                                                                                        contagemLinhas[1], SEPARADOR,
+                                                                                        contagemLinhas[1] - contagemLinhas[0]));
+                     relatorioTotalLinhas.append("\n");
                  } catch (IOException e) {
                      System.out.printf("Erro processando %s / %s", p, novo);
                      e.printStackTrace();
                  }
 
              });
+        Files.writeString(Paths.get("contagemLinhas.csv"), relatorioTotalLinhas.toString());
 
     }
 
-    public static void processa(Path p1, Path p2) throws IOException {
+    public static int[] processa(Path p1, Path p2, boolean gerarRelatorios) throws IOException {
         var relatorio = new StringBuffer();
         var csv = new StringBuffer();
         var erros = new StringBuffer();
 
         System.out.printf("INICIANDO ANALISE ARQUIVOS: %s - %s\n", p1, p2);
 
-        relatorio.append("## Relatório de transferências do governo federal para municípios\n");
-
         var linhasP1 = linhas(p1, erros);
         var linhasP2 = linhas(p2, erros);
 
-        relatorio.append("### Arquivos analisados:\n");
-        final String templateContagem = "* %s (%d linhas)\n";
-        relatorio.append(templateContagem.formatted(p1, linhasP1.size()));
-        relatorio.append(templateContagem.formatted(p2, linhasP2.size()));
+        if (gerarRelatorios) {
 
-        relatorio.append("### Total Transferências:\n");
-        final String templateSoma = "* %s: %f\n";
-        relatorio.append(templateSoma.formatted(p1, soma(linhasP1)));
-        relatorio.append(templateSoma.formatted(p2, soma(linhasP2)));
+            relatorio.append("## Relatório de transferências do governo federal para municípios\n");
+            relatorio.append("### Arquivos analisados:\n");
 
-        var contagemP1 = contaPorCidade(linhasP1);
-        var contagemP2 = contaPorCidade(linhasP2);
+            final String templateContagem = "* %s (%d linhas)\n";
+            relatorio.append(templateContagem.formatted(p1, linhasP1.size()));
+            relatorio.append(templateContagem.formatted(p2, linhasP2.size()));
 
-        var somaP1 = somaPorCidade(linhasP1);
-        var somaP2 = somaPorCidade(linhasP2);
+            relatorio.append("### Total Transferências:\n");
+            final String templateSoma = "* %s: %f\n";
+            relatorio.append(templateSoma.formatted(p1, soma(linhasP1)));
+            relatorio.append(templateSoma.formatted(p2, soma(linhasP2)));
 
-        final var cabecalhoTabela =
-                """
-                        | Mun | %s | %s | Diff | Percent |
-                        | --- | --- | --- | --- | --- |
-                        """
-                           .formatted(p1, p2);
+            var contagemP1 = contaPorCidade(linhasP1);
+            var contagemP2 = contaPorCidade(linhasP2);
 
-        final var cabecalhoCSV = """
-                "Mun";"%s";"%s";"Diff";"Percent"
-                """
-                   .formatted(p1, p2);
-        relatorio.append("### Diferença de valores totais de transferências por município:\n");
-        relatorio.append(cabecalhoTabela);
-        csv.append(cabecalhoCSV);
-        var mudancasValor = new AtomicBoolean(false);
-        var mudancasLinha = new AtomicBoolean(false);
-        somaP1.forEach((m, l) -> {
-            var l2 = somaP2.get(m);
-            if (l2 != null && Math.abs(l - l2) >= 0.0001) {
-                var diff = l2 - l;
-                var percent = (diff * 100.0) / l;
-                relatorio.append("| %s | %.2f | %.2f | %.2f | %.2f |\n".formatted(m, l, l2, diff, percent));
-                csv.append("\"%s\";%.2f;%.2f;%.2f;%.2f\n".formatted(m, l, l2, diff, percent));
-                mudancasValor.set(true);
+            var somaP1 = somaPorCidade(linhasP1);
+            var somaP2 = somaPorCidade(linhasP2);
+
+            final var cabecalhoTabela =
+                    """
+                            | Mun | %s | %s | Diff | Percent |
+                            | --- | --- | --- | --- | --- |
+                            """
+                               .formatted(p1, p2);
+
+            final var cabecalhoCSV = """
+                    "Mun";"%s";"%s";"Diff";"Percent"
+                    """
+                       .formatted(p1, p2);
+            relatorio.append("### Diferença de valores totais de transferências por município:\n");
+            relatorio.append(cabecalhoTabela);
+            csv.append(cabecalhoCSV);
+            var mudancasValor = new AtomicBoolean(false);
+            var mudancasLinha = new AtomicBoolean(false);
+            somaP1.forEach((m, l) -> {
+                var l2 = somaP2.get(m);
+                if (l2 != null && Math.abs(l - l2) >= 0.0001) {
+                    var diff = l2 - l;
+                    var percent = (diff * 100.0) / l;
+                    relatorio.append("| %s | %.2f | %.2f | %.2f | %.2f |\n".formatted(m, l, l2, diff, percent));
+                    csv.append("\"%s\";%.2f;%.2f;%.2f;%.2f\n".formatted(m, l, l2, diff, percent));
+                    mudancasValor.set(true);
+                }
+            });
+
+            relatorio.append("### Diferença de número de transferência por município:\n");
+            relatorio.append(cabecalhoTabela);
+            contagemP1.forEach((m, l) -> {
+                var l2 = contagemP2.get(m);
+
+                if (l2 != null && l.size() != l2.size()) {
+                    var diff = l2.size() - l.size();
+                    var percent = (diff * 100) / l.size();
+                    relatorio.append("| %s | %s | %s | %d | %d |\n".formatted(m, l.size(), l2.size(), diff, percent));
+                    mudancasLinha.set(true);
+                }
+            });
+
+            var nomeBase = p1.toFile().getName() + "_" + p2.toFile().getName();
+            var nomeSaidaRelatorio = "relatorios/" + nomeBase + ".md";
+            var nomeSaidaCsv = "csvs/" + nomeBase + ".csv";
+            var nomeSaidaErro = "erros/" + nomeBase + ".txt";
+
+            if (mudancasLinha.get() || mudancasValor.get()) {
+                System.out.println(">>> Diferenças identificadas - salvando dados");
+                Files.writeString(Paths.get(nomeSaidaRelatorio), relatorio.toString());
+                Files.writeString(Paths.get(nomeSaidaCsv), csv.toString());
+                Files.writeString(Paths.get(nomeSaidaErro), erros.toString());
+            } else {
+                System.out.println(">>> Não há diferença!");
             }
-        });
-
-        relatorio.append("### Diferença de número de transferência por município:\n");
-        relatorio.append(cabecalhoTabela);
-        contagemP1.forEach((m, l) -> {
-            var l2 = contagemP2.get(m);
-
-            if (l2 != null && l.size() != l2.size()) {
-                var diff = l2.size() - l.size();
-                var percent = (diff * 100) / l.size();
-                relatorio.append("| %s | %s | %s | %d | %d |\n".formatted(m, l.size(), l2.size(), diff, percent));
-                mudancasLinha.set(true);
-            }
-        });
-
-        var nomeBase = p1.toFile().getName() + "_" + p2.toFile().getName();
-        var nomeSaidaRelatorio = "relatorios/" + nomeBase + ".md";
-        var nomeSaidaCsv = "csvs/" + nomeBase + ".csv";
-        var nomeSaidaErro = "erros/" + nomeBase + ".txt";
-
-        if (mudancasLinha.get() || mudancasValor.get()) {
-            System.out.println(">>> Diferenças identificadas - salvando dados");
-            Files.writeString(Paths.get(nomeSaidaRelatorio), relatorio.toString());
-            Files.writeString(Paths.get(nomeSaidaCsv), csv.toString());
-            Files.writeString(Paths.get(nomeSaidaErro), erros.toString());
-        } else {
-            System.out.println(">>> Não há diferença!");
+            System.out.printf("Análise terminada para %s e  %s\n", p1, p2);
         }
-        System.out.printf("Análise terminada para %s e  %s\n", p1, p2);
+
+        return new int[]{linhasP1.size(), linhasP2.size()};
 
     }
 
